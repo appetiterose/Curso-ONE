@@ -10,7 +10,7 @@
     <body><!--El Body es el cuerpo de nuestra página como tal-->
         <header><!--No confundir, es nuestra parte de encabezado-->
             <div class="caja">
-                <h1><img src="imagenes/logo.png"></h1>
+                <h1><img src="imagenes/logo.png" alt="Logo de la Barbería Alura"></h1>
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -24,19 +24,19 @@
         <main><!--Es nuestro contenido de nuestra página-->
             <form><!--representa una sección de un documento que contiene controles interactivos que permiten a un usuario enviar información a un servidor web.-->
                 <label for="nombreapellido">Nombre y Apellido</label><!--Estoy casando el label con el input con el for y el id-->
-                <input type="text" id="nombreapellido" class="input-padron">
+                <input type="text" id="nombreapellido" class="input-padron" required>
 
                 <label for="correoelectronico">Correo Electrónico</label>
-                <input type="text" id="correoelectronico" class="input-padron">
+                <input type="email" id="correoelectronico" class="input-padron" required placeholder="email@dominio.com">
 
                 <label for="telefono">Teléfono</label>
-                <input type="text" id="telefono" class="input-padron">
+                <input type="tel" id="telefono" class="input-padron" required placeholder="(xx) xxxx xxxx">
 
                 <label for="mensaje">Mensaje</label>
-                <textarea cols="70" rows="10" id="mensaje" class="input-padron"></textarea><!--Creamos una clase para que las configuraciones solo apliquen para estos input "padron" y no al resto de input-->
+                <textarea cols="70" rows="10" id="mensaje" class="input-padron" required></textarea><!--Creamos una clase para que las configuraciones solo apliquen para estos input "padron" y no al resto de input-->
 
-                <div>
-                    <p class="test" id="test">¿Cómo le gustaría que lo contactemos?</p>
+                <fieldset>
+                    <legend class="test" id="test">¿Cómo le gustaría que lo contactemos?</legend>
 
                     <label for="radio-email"><input type="radio" name="contacto" value="email" id="radio-email">Email</label>
                     
@@ -44,27 +44,50 @@
                     <label for="radio-telefono"><input type="radio" name="contacto" value="telefono" id="radio-telefono">Teléfono</label>
                     
                     
-                    <label for="radio-whataspp"><input type="radio" name="contacto" value="whatsapp" id="radio-whatsapp">WhatsApp</label>
+                    <label for="radio-whataspp"><input type="radio" name="contacto" value="whatsapp" id="radio-whatsapp" checked>WhatsApp</label>
                     <!--Con el name solo se puede completar una vez, cuando seleccionamos otro item se anula el anterior. Tambien se coloca el input dentro del label antes del texto para poder colocar el radio a la izquierda del texto-->
-                </div><!--todo es parte del forumario de contacto radio-->
+                </fieldset><!--todo es parte del forumario de contacto radio-->
 
-                <div>
-                    <p>¿En cual horario prefiere ser atendido?</p>
+                <fieldset><!--Fieldset no usa p, usa legend-->
+                    <legend>¿En cual horario prefiere ser atendido?</legend>
                     <select>
                         <option>Mañana</option>
                         <option>Tarde</option>
                         <option>Noche</option>
                     </select>
-                </div>
+                </fieldset>
                 
-                <label class="checkbox"><input type="checkbox">¿Le gustaría recibir novedades de la Barbería Alura?</label><!--Es para el checkbox de contactarlo o no-->
+                <label class="checkbox"><input type="checkbox" checked>¿Le gustaría recibir novedades de la Barbería Alura?</label><!--Es para el checkbox de contactarlo o no-->
 
-                <input type="submit" value="Envíar formulario"><!--Coloca el botón enviar, si no coloco value-->
+                <input type="submit" value="Envíar formulario" class="enviar"><!--Coloca el botón enviar, si no coloco value-->
             </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>horario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lunes</td>
+                        <td>08h - 20h</td>
+                    </tr>
+                    <tr>
+                        <td>Miércoles</td>
+                        <td>08h - 20h</td>
+                    </tr>
+                    <tr>
+                        <td>Viernes</td>
+                        <td>08h - 20h</td>
+                    </tr>
+                </tbody>
+                
+            </table>
         </main>
 
         <footer><!--Se refiere a el pie de página-->
-            <img src="imagenes/logo-blanco.png">
+            <img src="imagenes/logo-blanco.png" alt="Logo de la Barbería Alura">
             <p class="copyright">&copy Copyright Barbería Alura - 2023</p>
         </footer>
     </body>
