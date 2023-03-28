@@ -6,36 +6,41 @@ class cliente{
 
 class cuentaCorriente{
     numero;
-    saldo;
+    #saldo; //Si coloco # la variable se toma como privada y no se puede modificar
     agencia;
 
+    constructor(){
+        this.#saldo = 0;
+        this.numero = '';
+        this.agencia = '';
+    }
+
     depositoEnCuenta(valor){
-        this.saldo += valor;
+        if(valor > 0)
+            this.#saldo += valor;
+        return this.#saldo;
+    }
+    retirarDeCuenta(valor){
+        if(valor <= this.#saldo)
+            this.#saldo -= valor;
+        return this.#saldo;
+    }
+
+    verSaldo(){
+        return this.#saldo;
     }
 }
 
-const cliente1 = new cliente();
-cliente1.nombreCliente = "José";
-cliente1.dniCliente = "12321";
-cliente1.rutCliente = "D19123";
-const cuentaCorriente1 = new cuentaCorriente();
-cuentaCorriente1.numero = "232323";
-cuentaCorriente1.saldo = 2000;
-cuentaCorriente1.agencia = 1001;
+cuentaDeLeonardo =new cuentaCorriente();
 
-const cliente2 = new cliente();
-cliente2.nombreCliente = "Leonardo";
-cliente2.dniCliente = "13804050";
-cliente2.rutCliente = "P12341";
-const cuentaCorriente2 = new cuentaCorriente();
-cuentaCorriente2.numero = "123434343";
-cuentaCorriente2.saldo = 1000;
-cuentaCorriente2.agencia = 1001;
+let saldo = cuentaDeLeonardo.verSaldo();
+console.log('El saldo actual es: ' + saldo);
 
-console.log(cuentaCorriente2.saldo);
-cuentaCorriente2.depositoEnCuenta(100);
-console.log(cuentaCorriente2.saldo);
-cuentaCorriente2.depositoEnCuenta(200);
-console.log(cuentaCorriente2.saldo);
-cuentaCorriente2.depositoEnCuenta(500);
-console.log(cuentaCorriente2.saldo);
+saldo = cuentaDeLeonardo.depositoEnCuenta(100);
+console.log('El saldo actual es: ' + saldo);
+
+saldo = cuentaDeLeonardo.retirarDeCuenta(100);
+console.log('El saldo actual es: ' + saldo);
+
+saldo = cuentaDeLeonardo.depositoEnCuenta(10);
+console.log('El saldo actual es: ' + saldo);
