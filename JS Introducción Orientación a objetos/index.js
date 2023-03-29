@@ -1,46 +1,18 @@
-class cliente{
-    nombreCliente;
-    dniCliente;
-    rutCliente;
-}
+import {Cliente} from './Cliente.js'
+import {CuentaCorriente} from './CuentaCorriente.js'
 
-class cuentaCorriente{
-    numero;
-    #saldo; //Si coloco # la variable se toma como privada y no se puede modificar
-    agencia;
+const cliente = new Cliente('Leonardo','1234560','789456');
+const cliente2 = new Cliente('Maria','6543210','780000');
 
-    constructor(){
-        this.#saldo = 0;
-        this.numero = '';
-        this.agencia = '';
-    }
-
-    depositoEnCuenta(valor){
-        if(valor > 0)
-            this.#saldo += valor;
-        return this.#saldo;
-    }
-    retirarDeCuenta(valor){
-        if(valor <= this.#saldo)
-            this.#saldo -= valor;
-        return this.#saldo;
-    }
-
-    verSaldo(){
-        return this.#saldo;
-    }
-}
-
-cuentaDeLeonardo =new cuentaCorriente();
+const cuentaDeLeonardo = new CuentaCorriente(cliente,'1','001');
+const cuentaDeMaria = new CuentaCorriente(cliente2,'2','002');
 
 let saldo = cuentaDeLeonardo.verSaldo();
-console.log('El saldo actual es: ' + saldo);
 
-saldo = cuentaDeLeonardo.depositoEnCuenta(100);
-console.log('El saldo actual es: ' + saldo);
+saldo = cuentaDeLeonardo.depositoEnCuenta(150);
 
-saldo = cuentaDeLeonardo.retirarDeCuenta(100);
-console.log('El saldo actual es: ' + saldo);
-
-saldo = cuentaDeLeonardo.depositoEnCuenta(10);
-console.log('El saldo actual es: ' + saldo);
+console.log(CuentaCorriente.cantidadCuentas);
+new CuentaCorriente(cliente2,'2','002');
+new CuentaCorriente(cliente2,'2','002');
+new CuentaCorriente(cliente2,'2','002');
+console.log(CuentaCorriente.cantidadCuentas);
