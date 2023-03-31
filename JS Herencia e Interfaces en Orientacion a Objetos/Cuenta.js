@@ -24,7 +24,12 @@ export class Cuenta{
         return this.#saldo;
     }
 
-    retirarDeCuenta(valor) {
+    retirarDeCuenta(valor,comision) {
+        _retirarDeCuenta(valor,0)
+    }
+
+    _retirarDeCuenta(valor,comision) {
+        valor = valor*(1+comision/100);
         if (valor <= this.#saldo)
             this.#saldo -= valor;
         return this.#saldo;
@@ -39,5 +44,9 @@ export class Cuenta{
         cuentaDestino.depositoEnCuenta(valor);
         valor = 200;
         valor = valor*1000;
+    }
+
+    prueba(){
+        console.log('Metodo padre');
     }
 }
