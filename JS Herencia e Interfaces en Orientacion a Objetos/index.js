@@ -1,24 +1,21 @@
 /*Importación de clases*/
 import {Cliente} from './Cliente.js'
-import {CuentaCorriente} from './CuentaCorriente.js';
-import {Cuenta} from './Cuenta.js';
-import { CuentaAhorro } from './CuentaAhorro.js';
+import { Empleado } from './Empleados/Empleado.js';
+import { Gerente } from './Empleados/Gerente.js';
+import { Director } from './Empleados/Director.js';
+import { SistemaAutenticacion } from './SistemaAutenticacion.js';
 
 const cliente = new Cliente('Leonardo','13804050','123224');
-const cliente2 = new Cliente('María','16979808','8989');
+cliente.asignarClave('1111');
+console.log(SistemaAutenticacion.login(cliente,'11110'));
+//const cliente2 = new Cliente('María','16979808','8989');
 
-const cuentaDeLeonardo = new CuentaCorriente('Corriente',cliente, '1', '001');
-const cuentaDeMaria = new CuentaCorriente('Corriente',cliente2,'2','002');
+const empleado = new Empleado('Juan Perez', '12345',10000);
+empleado.asignarClave('12345');
+console.log(SistemaAutenticacion.login(empleado,'12345'));
 
-const cuentaAhorroLeonardo = new CuentaAhorro('Ahorro',cliente,'9985','001',0);
+const gerente = new Gerente('Pedro Rivas','98765',12000);
+gerente.asignarClave('6789');
+console.log(SistemaAutenticacion.login(gerente,'6789'));
 
-console.log(cuentaDeLeonardo);
-cuentaDeLeonardo.depositoEnCuenta(150);
-console.log(cuentaDeLeonardo.verSaldo());
-cuentaDeLeonardo.retirarDeCuenta(70);
-console.log(cuentaDeLeonardo.verSaldo());
-console.log(cuentaAhorroLeonardo);
-cuentaAhorroLeonardo.depositoEnCuenta(200);
-console.log(cuentaAhorroLeonardo.verSaldo());
-cuentaAhorroLeonardo.retirarDeCuenta(120);
-console.log(cuentaAhorroLeonardo.verSaldo());
+const director = new Director('Elena Moreno','45678',15000);
